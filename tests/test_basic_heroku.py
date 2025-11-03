@@ -1,5 +1,8 @@
 from pages.go_to import Goto
 from playwright.sync_api import Page, expect
+import pytest
+
+pytestmark = pytest.mark.ui
 
 def test_add_remove(page: Page) -> None:
     heroku = Goto(page)
@@ -93,3 +96,14 @@ def test_hovers(page: Page) -> None:
     expect(avatars.nth(1).locator("h5")).to_have_text("name: user2")
     avatars.nth(2).hover()
     expect(avatars.nth(2).locator("h5")).to_have_text("name: user3")
+
+def test_drag_and_drop(page: Page) -> None:
+    heroku = Goto(page)
+
+    # This is a placeholder for a drag and drop test
+    heroku.heroku_go_to("drag_and_drop")
+    box_a = page.locator("#column-a")
+    box_b = page.locator("#column-b")
+    box_a.drag_to(box_b)
+    expect(box_a).to_have_text("B")
+    expect(box_b).to_have_text("A")

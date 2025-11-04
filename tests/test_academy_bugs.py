@@ -2,7 +2,7 @@ from pages.go_to import Goto
 from playwright.sync_api import Page, expect
 import pytest
 
-pytestmark = pytest.mark.academy
+pytestmark = [pytest.mark.academy, pytest.mark.ui]
 
 def test_academy_facebook_share(page: Page) -> None:
     academy = Goto(page)

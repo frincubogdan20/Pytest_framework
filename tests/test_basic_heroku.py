@@ -2,7 +2,7 @@ from pages.go_to import Goto
 from playwright.sync_api import Page, expect
 import pytest
 
-pytestmark = pytest.mark.ui
+pytestmark = pytest.mark.heroku
 
 def test_add_remove(page: Page) -> None:
     heroku = Goto(page)

@@ -7,7 +7,7 @@ pytestmark = [pytest.mark.heroku, pytest.mark.ui]
 def test_add_remove(page: Page) -> None:
     heroku = Goto(page)
 
-    # This is a placeholder for a basic add/remove elements test
+    # This is a basic add/remove elements test
     heroku.heroku_go_to("add_remove_elements/")
     page.click("text=Add Element")
     assert page.locator("text=Delete").is_visible()
@@ -17,7 +17,7 @@ def test_add_remove(page: Page) -> None:
 def test_checkboxes(page: Page) -> None:
     heroku = Goto(page)
 
-    # This is a placeholder for a basic checkboxes test
+    # This is a basic checkbox test
     heroku.heroku_go_to("checkboxes")
     checkboxes = page.locator("input[type='checkbox']")
     expect(checkboxes).to_have_count(2)
@@ -29,7 +29,7 @@ def test_checkboxes(page: Page) -> None:
 def test_dynamic_content(page: Page) -> None:
     heroku = Goto(page)
 
-    # This is a placeholder for a dynamic content test
+    # This is a dynamic content test
     heroku.heroku_go_to("dynamic_content")
     contents_before = page.locator(".large-10.columns").all_text_contents()
     page.reload()
@@ -39,7 +39,7 @@ def test_dynamic_content(page: Page) -> None:
 def test_form_authentication(page: Page) -> None:
     heroku = Goto(page)
     
-    # This is a placeholder for a form authentication test
+    # This is a form authentication test
     heroku.heroku_go_to("login")
     page.fill("input#username", "tomsmith")
     page.fill("input#password", "SuperSecretPassword!")
@@ -49,7 +49,7 @@ def test_form_authentication(page: Page) -> None:
 def test_dropdown(page: Page) -> None:
     heroku = Goto(page)
 
-    # This is a placeholder for a dropdown test
+    # This is a dropdown test
     heroku.heroku_go_to("dropdown")
     page.select_option("select#dropdown", "1")
     expect(page.locator("select#dropdown")).to_have_value("1")
@@ -59,7 +59,7 @@ def test_dropdown(page: Page) -> None:
 def test_dynamic_loading(page: Page) -> None:
     heroku = Goto(page)
 
-    # This is a placeholder for a dynamic loading test
+    # This is a dynamic loading test
     heroku.heroku_go_to("dynamic_loading/1")
     page.click("button")
     expect(page.locator("#finish")).to_have_text("Hello World!")
@@ -67,7 +67,7 @@ def test_dynamic_loading(page: Page) -> None:
 def test_floating_menu(page: Page) -> None:
     heroku = Goto(page)
 
-    # This is a placeholder for a floating menu test
+    # This is a floating menu test
     heroku.heroku_go_to("floating_menu")
     menu = page.locator("#menu")
     expect(menu).to_be_visible()
@@ -77,7 +77,7 @@ def test_floating_menu(page: Page) -> None:
 def test_horizontal_slider(page: Page) -> None:
     heroku = Goto(page)
 
-    # This is a placeholder for a horizontal slider test
+    # This is a horizontal slider test
     heroku.heroku_go_to("horizontal_slider")
     slider = page.locator("input[type='range']")
     slider.fill("4")
@@ -86,7 +86,7 @@ def test_horizontal_slider(page: Page) -> None:
 def test_hovers(page: Page) -> None:
     heroku = Goto(page)
 
-    # This is a placeholder for a hovers test
+    # This is a hovers test
     heroku.heroku_go_to("hovers")
     avatars = page.locator(".figure")
     expect(avatars).to_have_count(3)
@@ -100,7 +100,7 @@ def test_hovers(page: Page) -> None:
 def test_drag_and_drop(page: Page) -> None:
     heroku = Goto(page)
 
-    # This is a placeholder for a drag and drop test
+    # This is a drag and drop test
     heroku.heroku_go_to("drag_and_drop")
     box_a = page.locator("#column-a")
     box_b = page.locator("#column-b")

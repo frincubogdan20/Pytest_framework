@@ -7,7 +7,7 @@ pytestmark = [pytest.mark.academy, pytest.mark.ui]
 def test_academy_facebook_share(page: Page) -> None:
     academy = Goto(page)
 
-    # This is a placeholder for a borken Facebook share button test
+    # This is a broken Facebook share button test
     academy.academy_go_to("articles/")
     with page.expect_popup(timeout=3000) as popup_info:
         page.click("#square-share-a1")
@@ -18,7 +18,7 @@ def test_academy_facebook_share(page: Page) -> None:
 def test_academy_contact_form(page: Page) -> None:
     academy = Goto(page)
 
-    # This is a placeholder for a broken contact form test
+    # This is a broken contact form test
     academy.academy_go_to("contact-us-form/")
     page.fill("input#first_name", "academy")
     page.get_by_placeholder("Last Name").fill("bugs")
@@ -31,7 +31,7 @@ def test_academy_contact_form(page: Page) -> None:
 def test_article_links(page: Page) -> None:
     academy = Goto(page)
 
-    # This is a placeholder for a broken article links test
+    # This is a broken article links test
     academy.academy_go_to("articles/")
     article_links = page.locator("h2.entry-title > a")
 
@@ -42,7 +42,7 @@ def test_article_links(page: Page) -> None:
 def test_academy_book_table(page: Page) -> None:
     academy = Goto(page)
 
-    # This is a placeholder for a broken book a table test
+    # This is a broken book a table test
     academy.academy_go_to("my-bookings/")
     page.click("input#rtb-date")
     page.locator("[aria-label='November 15, 2025']").click()

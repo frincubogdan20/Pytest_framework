@@ -1,25 +1,22 @@
-from pages.go_to import Goto
 from playwright.sync_api import Page, expect
 import pytest
 
 pytestmark = [pytest.mark.academy, pytest.mark.ui]
 
-def test_academy_facebook_share(page: Page) -> None:
-    academy = Goto(page)
+def test_academy_facebook_share(page: Page, academy_base_url) -> None:
 
     # This is a broken Facebook share button test
-    academy.academy_go_to("articles/")
+    page.goto(f"{academy_base_url}/articles/")
     with page.expect_popup(timeout=3000) as popup_info:
         page.click("#square-share-a1")
 
     popup = popup_info.value
     assert "facebook.com" in popup.url, "Facebook share button did not open the correct URL"
 
-def test_academy_contact_form(page: Page) -> None:
-    academy = Goto(page)
+def test_academy_contact_form(page: Page, academy_base_url) -> None:
 
     # This is a broken contact form test
-    academy.academy_go_to("contact-us-form/")
+    page.goto(f"{academy_base_url}/contact-us-form/")
     page.fill("input#first_name", "academy")
     page.get_by_placeholder("Last Name").fill("bugs")
     page.get_by_placeholder("Email").fill("academybugs@bugs.com")
@@ -28,22 +25,21 @@ def test_academy_contact_form(page: Page) -> None:
     page.click("button#submit-contact-form")
     expect(page.locator("div#wpforms-confirmation-1122")).to_contain_text("Thank you for your message")
 
-def test_article_links(page: Page) -> None:
-    academy = Goto(page)
+def test_article_links(page: Page, academy_base_url) -> None:
 
     # This is a broken article links test
-    academy.academy_go_to("articles/")
+    page.goto(f"{academy_base_url}/articles/")
     article_links = page.locator("h2.entry-title > a")
 
     with page.expect_navigation():
         article_links.nth(0).click()
     assert "Why Do I Need To Use Financial Consulting Service?" in page.title()
 
-def test_academy_book_table(page: Page) -> None:
-    academy = Goto(page)
+def test_academy_book_table(page: Page, academy_base_url) -> None:
 
     # This is a broken book a table test
-    academy.academy_go_to("my-bookings/")
+    page.goto(f"{academy_base_url}/my-bookings/")
+
     page.click("input#rtb-date")
     page.locator("[aria-label='November 15, 2025']").click()
     page.click("input#rtb-time")

@@ -39,7 +39,7 @@ jobs:
         name: ui-test-report
         path: ui_report.html
 
-  academybugs-tests:
+  parabank-tests:
     runs-on: ubuntu-latest
 
     steps:
@@ -59,11 +59,11 @@ jobs:
         pip install -r requirements.txt
         playwright install
 
-    - name: Run Academybugs UI tests
+    - name: Run Parabank API tests
       run: |
         source venv/bin/activate
         export PLAYWRIGHT_HEADLESS=false
-        python3 -m pytest -m academy --html=ui_report.html
+        python3 -m pytest -m parabank --html=ui_report.html
 
     - name: Upload Test Artifacts
       uses: actions/upload-artifact@v4

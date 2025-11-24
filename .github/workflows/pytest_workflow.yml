@@ -3,6 +3,8 @@ name: Run UI Tests
 on:
   push:
     branches: [main]
+    paths-ignore:
+      - 'tests/ui_tests/test_basic_search.py'
   pull_request:
     branches: [main]
 

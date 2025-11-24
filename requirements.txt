@@ -1,4 +1,5 @@
 pytest
+pytest-bdd
 playwright
-pytest-playwright
+playwright-pytest
 pytest-html

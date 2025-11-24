@@ -9,8 +9,8 @@ class KiwiHomePage:
 
     # Kiwi page locators
     COOKIE_CLOSE_BUTTON = "button[aria-label='Close']"
-    SEARCH_MODE = "[data-test^=SearchFormModesPicker-active-"
-    ONE_WAY_BUTTON = "[data-test=ModePopupOption-oneWay]"
+    SEARCH_MODE = "[data-test^='SearchFormModesPicker-active-"
+    ONE_WAY_BUTTON = "[data-test='ModePopupOption-oneWay']"
     FROM_INPUT = "input[id='origin']"
     FROM_INPUT_CLEAR = "[data-test='PlacePickerInputPlace-close']"
     TO_INPUT = "input[id='destination']"
@@ -38,8 +38,8 @@ class KiwiHomePage:
 
     def select_one_way(self):
         # Click one-way if not already selected
-        if self.page.locator(f"{self.SEARCH_MODE}one-way]").count() == 0:
-            self.page.locator(f"{self.SEARCH_MODE}]").first.click()
+        if self.page.locator(f"{self.SEARCH_MODE}one-way']").count() == 0:
+            self.page.locator(f"{self.SEARCH_MODE}']").first.click()
             self.page.locator(self.ONE_WAY_BUTTON).click()
 
 

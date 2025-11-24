@@ -33,7 +33,7 @@ jobs:
     - name: Run Kiwi UI tests
       run: |
         source venv/bin/activate
-        export PLAYWRIGHT_HEADLESS=true
+        export PLAYWRIGHT_HEADLESS=false
         python3 -m pytest -m basic_search --html=ui_report.html
 
     - name: Upload Test Artifacts

@@ -38,10 +38,9 @@ class KiwiHomePage:
 
     def select_one_way(self):
         # Click one-way if not already selected
-        # if self.page.locator(f"{self.SEARCH_MODE}one-way']").count() == 0:
-        #     self.page.locator(f"{self.SEARCH_MODE}']").first.click()
-        #     self.page.locator(self.ONE_WAY_BUTTON).click()
-        pass
+        if self.page.locator(f"{self.SEARCH_MODE}one-way']").count() == 0:
+            self.page.locator(f"{self.SEARCH_MODE}']").first.click()
+            self.page.locator(self.ONE_WAY_BUTTON).click()
 
 
     def set_departure_airport(self, airport_name: str):

@@ -9,7 +9,7 @@ class KiwiHomePage:
 
     # Kiwi page locators
     COOKIE_CLOSE_BUTTON = "button[aria-label='Close']"
-    SEARCH_MODE = "[data-test^='SearchFormModesPicker-active-"
+    SEARCH_MODE = "[data-test='SearchFormModesPicker-active-"
     ONE_WAY_BUTTON = "[data-test='ModePopupOption-oneWay']"
     FROM_INPUT = "input[id='origin']"
     FROM_INPUT_CLEAR = "[data-test='PlacePickerInputPlace-close']"

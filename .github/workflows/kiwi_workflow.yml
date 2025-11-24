@@ -3,8 +3,9 @@ name: Run Kiwi UI Tests
 on:
   push:
     branches: [main]
-    paths:
-      - 'tests/ui_tests/test_basic_search.py'
+    paths-ignore:
+      - 'tests/ui_tests/test_basic_heroku.py'
+      - 'tests/ui_tests/test_academy_bugs.py'
   pull_request:
     branches: [main]
 

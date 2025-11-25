@@ -78,7 +78,7 @@ class KiwiHomePage:
     def click_search(self):
         self.page.locator(self.SEARCH_BUTTON).first.click()
         # Wait for results to load
-        self.page.wait_for_timeout(2000)
+        self.page.wait_for_timeout(10000)
 
     def is_on_results_page(self) -> bool:
         url = self.page.url

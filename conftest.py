@@ -34,17 +34,13 @@ def session():
     s = requests.Session()
     return s
 
-def get_headless():
-    # PLAYWRIGHT_HEADLESS is a string: 'false' or 'true'
-    return os.environ.get("PLAYWRIGHT_HEADLESS", "true").lower() == "true"
-
 @pytest.fixture(scope="session")
 def browser():
     """Launch a Chromium browser (headed or headless)."""
     with sync_playwright() as pw:
         # This is where your line goes
         browser = pw.chromium.launch(
-            headless=get_headless(),
+            headless=False,
             args=[
                 "--no-sandbox",
                 "--disable-gpu"

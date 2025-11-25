@@ -38,7 +38,7 @@ class KiwiHomePage:
 
     def select_one_way(self):
         # Click one-way if not already selected
-        if self.page.locator(f"{self.SEARCH_MODE}one-way']").count() == 0:
+        if self.page.locator(f"{self.SEARCH_MODE}oneWay']").count() == 0:
             self.page.locator(f"{self.SEARCH_MODE}']").first.click()
             self.page.locator(self.ONE_WAY_BUTTON).click()
 
@@ -77,6 +77,8 @@ class KiwiHomePage:
 
     def click_search(self):
         self.page.locator(self.SEARCH_BUTTON).first.click()
+        # Wait for results to load
+        self.page.wait_for_timeout(2000)
 
     def is_on_results_page(self) -> bool:
         url = self.page.url

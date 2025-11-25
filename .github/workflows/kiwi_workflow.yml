@@ -41,3 +41,16 @@ jobs:
       with:
         name: ui-test-report-kiwi
         path: ui_report.html
+
+  docker-kiwi-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Build Docker image
+        run: docker build -t pytest_framework_test .
+
+      - name: Run tests headless (default)
+        run: docker run --rm pytest_framework_test
